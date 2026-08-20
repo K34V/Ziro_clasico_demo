@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Splash Screen</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mi App">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="splash">
+
+    <!-- Fondo: cielo con degradado -->
+    <div class="sky"></div>
+
+    <!-- Contenedor central para el video del personaje -->
+    <div id="character-container" class="character-container">
+      <video autoplay loop muted playsinline style="width: 100%; max-width: 300px; mix-blend-mode: multiply;">
+    <source src="ziro_clasico.mp4" type="video/mp4">
+  </video>
+    </div>
+
+    <!-- Nube izquierda -->
+    <div class="cloud cloud-left" aria-hidden="true">
+      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path fill="#FDFBF7" d="M60,320
+          C20,310 0,260 40,220
+          C30,160 80,110 150,115
+          C170,60 240,30 310,55
+          C360,10 440,10 490,55
+          C560,40 630,80 640,140
+          C700,150 740,200 720,250
+          C740,300 710,350 650,360
+          L120,360
+          C80,360 50,345 60,320 Z"/>
+      </svg>
+    </div>
+
+    <!-- Nube derecha (espejo de la izquierda) -->
+    <div class="cloud cloud-right" aria-hidden="true">
+      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path fill="#FDFBF7" d="M740,320
+          C780,310 800,260 760,220
+          C770,160 720,110 650,115
+          C630,60 560,30 490,55
+          C440,10 360,10 310,55
+          C240,40 170,80 160,140
+          C100,150 60,200 80,250
+          C60,300 90,350 150,360
+          L680,360
+          C720,360 750,345 740,320 Z"/>
+      </svg>
+    </div>
+
+  </div>
+  
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registrado con éxito.', reg))
+        .catch(err => console.log('Error al registrar el Service Worker.', err));
+    });
+  }
+</script>
+
+</body>
+</html>
