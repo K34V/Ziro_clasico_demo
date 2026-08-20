@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Inicio · I.E. General Alfredo Vásquez Cobo</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FDFBF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- Fondo decorativo, coherente con la Splash Screen -->
+  <div class="bg-sky" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--gold" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--sky" aria-hidden="true"></div>
+
+  <div class="app">
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <div class="header__text">
+        <p class="header__school">I.E. General Alfredo Vásquez Cobo</p>
+        <h1 class="header__greeting">¡Hola, Explorador! 👋</h1>
+      </div>
+      <button class="header__avatar" aria-label="Ver perfil">
+        <span>🦊</span>
+      </button>
+    </header>
+
+    <!-- ===== Zona del guía: Ziro ===== -->
+    <section class="guide" aria-label="Mensaje de tu guía Ziro">
+      <div class="guide__avatar">
+        <span>🦊</span>
+      </div>
+      <div class="guide__bubble">
+        <p class="guide__name">Ziro dice:</p>
+        <p class="guide__message">"¡Hoy es un gran día para aprender algo nuevo! ¿Empezamos la aventura?"</p>
+      </div>
+    </section>
+
+    <!-- ===== Grid de módulos ===== -->
+    <section class="modules" aria-label="Módulos principales">
+
+      <a href="#" class="card">
+        <span class="card__icon card__icon--blue">📚</span>
+        <span class="card__title">Lecciones</span>
+        <span class="card__subtitle">Aprende paso a paso</span>
+      </a>
+
+      <a href="#" class="card">
+        <span class="card__icon card__icon--gold">🎮</span>
+        <span class="card__title">Juegos</span>
+        <span class="card__subtitle">Practica jugando</span>
+      </a>
+
+      <a href="#" class="card">
+        <span class="card__icon card__icon--blue">📈</span>
+        <span class="card__title">Progreso</span>
+        <span class="card__subtitle">Tus logros</span>
+      </a>
+
+      <a href="#" class="card">
+        <span class="card__icon card__icon--gold">⚙️</span>
+        <span class="card__title">Ajustes</span>
+        <span class="card__subtitle">Personaliza tu app</span>
+      </a>
+
+    </section>
+
+  </div>
+
+  <!-- ===== Bottom Navigation ===== -->
+  <nav class="bottom-nav" aria-label="Navegación principal">
+    <a href="dashboard.html" class="bottom-nav__item bottom-nav__item--active">
+      <span class="bottom-nav__icon">🏠</span>
+      <span class="bottom-nav__label">Inicio</span>
+    </a>
+    <a href="#" class="bottom-nav__item">
+      <span class="bottom-nav__icon">📚</span>
+      <span class="bottom-nav__label">Lecciones</span>
+    </a>
+    <a href="#" class="bottom-nav__item">
+      <span class="bottom-nav__icon">🎮</span>
+      <span class="bottom-nav__label">Juegos</span>
+    </a>
+    <a href="#" class="bottom-nav__item">
+      <span class="bottom-nav__icon">👤</span>
+      <span class="bottom-nav__label">Perfil</span>
+    </a>
+  </nav>
+
+</body>
+</html>

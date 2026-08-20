@@ -10,7 +10,7 @@ html, body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  background: #FFFFFF;
+  background: #FDFBF7;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
 }
@@ -31,17 +31,87 @@ html, body {
   z-index: 1;
 }
 
-/* ---------- Contenedor central del personaje ---------- */
-.character-container {
+/* ---------- Escenario central: personaje + botón ---------- */
+.stage {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(70vw, 420px);
-  aspect-ratio: 9 / 16;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 4vh, 36px);
   z-index: 2;
+  width: min(70vw, 420px);
+}
+
+.character-container {
+  width: 100%;
+  aspect-ratio: 9 / 16;
   /* Cuando insertes el video del personaje, hazlo ocupar 100% de este contenedor: */
   /* .character-container video { width:100%; height:100%; object-fit:cover; border-radius:24px; } */
+}
+
+/* ---------- Botón "Comenzar Aventura" ---------- */
+.start-button {
+  --gold-light: #F6DFA0;
+  --gold-mid: #E0B45C;
+  --gold-deep: #A97C2F;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-family: "Baloo 2", "Nunito Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(15px, 4vw, 18px);
+  letter-spacing: 0.02em;
+  color: #5A3E10;
+
+  background: linear-gradient(155deg, var(--gold-light) 0%, var(--gold-mid) 55%, var(--gold-deep) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 10px 24px rgba(169, 124, 47, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  opacity: 0;
+  transform: translateY(14px);
+  animation: reveal-button 0.7s ease-out forwards;
+  animation-delay: 3.4s; /* aparece justo cuando las nubes terminan de salir */
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.start-button:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow:
+    0 4px 12px rgba(169, 124, 47, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.start-button:hover {
+  filter: brightness(1.04);
+}
+
+.start-button__icon {
+  font-size: 1.05em;
+  transition: transform 0.2s ease;
+}
+
+.start-button:hover .start-button__icon {
+  transform: translateX(3px);
+}
+
+@keyframes reveal-button {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ---------- Nubes ---------- */
@@ -96,6 +166,10 @@ html, body {
 /* Respeta la preferencia de movimiento reducido del usuario */
 @media (prefers-reduced-motion: reduce) {
   .cloud {
+    animation-duration: 0.01s;
+    animation-delay: 0s;
+  }
+  .start-button {
     animation-duration: 0.01s;
     animation-delay: 0s;
   }

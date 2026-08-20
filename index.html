@@ -7,11 +7,15 @@
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#FDFBF7">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Mi App">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,17 +26,23 @@
     <!-- Fondo: cielo con degradado -->
     <div class="sky"></div>
 
-    <!-- Contenedor central para el video del personaje -->
-    <div id="character-container" class="character-container">
-      <video autoplay loop muted playsinline style="width: 100%; max-width: 300px; mix-blend-mode: multiply;">
-    <source src="ziro_clasico.mp4" type="video/mp4">
-  </video>
+    <!-- Escenario central: personaje + botón, agrupados y centrados -->
+    <div class="stage">
+      <div id="character-container" class="character-container">
+        <!-- Aquí se insertará el <video> del personaje más adelante -->
+      </div>
+
+      <!-- Botón de inicio: aparece al revelarse la escena -->
+      <a href="dashboard.html" class="start-button" role="button">
+        <span>Comenzar Aventura</span>
+        <span class="start-button__icon" aria-hidden="true">→</span>
+      </a>
     </div>
 
     <!-- Nube izquierda -->
     <div class="cloud cloud-left" aria-hidden="true">
       <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path fill="#FDFBF7" d="M60,320
+        <path fill="#FFFFFF" d="M60,320
           C20,310 0,260 40,220
           C30,160 80,110 150,115
           C170,60 240,30 310,55
@@ -48,7 +58,7 @@
     <!-- Nube derecha (espejo de la izquierda) -->
     <div class="cloud cloud-right" aria-hidden="true">
       <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path fill="#FDFBF7" d="M740,320
+        <path fill="#FFFFFF" d="M740,320
           C780,310 800,260 760,220
           C770,160 720,110 650,115
           C630,60 560,30 490,55
@@ -62,16 +72,6 @@
     </div>
 
   </div>
-  
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => console.log('Service Worker registrado con éxito.', reg))
-        .catch(err => console.log('Error al registrar el Service Worker.', err));
-    });
-  }
-</script>
 
 </body>
 </html>

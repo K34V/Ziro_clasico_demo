@@ -1,0 +1,297 @@
+/* =========================================================
+   Tokens
+   ========================================================= */
+:root {
+  --cream: #FDFBF7;
+  --sky: #8ED1FC;
+  --sky-deep: #4FA8DE;
+  --gold-light: #F6DFA0;
+  --gold: #E0B45C;
+  --gold-deep: #A97C2F;
+  --ink: #33404D;
+  --ink-soft: #6B7784;
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 12px 30px rgba(79, 133, 168, 0.14);
+
+  --radius-lg: 26px;
+  --radius-md: 20px;
+  --radius-pill: 999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--cream);
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  color: var(--ink);
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* =========================================================
+   Fondo decorativo
+   ========================================================= */
+.bg-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(180deg, #CFE9FB 0%, var(--cream) 38%);
+}
+
+.bg-blob {
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.35;
+}
+
+.bg-blob--gold {
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  right: -60px;
+  background: var(--gold-light);
+}
+
+.bg-blob--sky {
+  width: 260px;
+  height: 260px;
+  bottom: 10vh;
+  left: -90px;
+  background: var(--sky);
+}
+
+/* =========================================================
+   Layout general
+   ========================================================= */
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px calc(110px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: env(safe-area-inset-top);
+}
+
+.header__school {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.header__greeting {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.header__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* =========================================================
+   Banner del guía: Ziro
+   ========================================================= */
+.guide {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(142, 209, 252, 0.35), rgba(255, 255, 255, 0.55));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.guide__avatar {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  background: var(--cream);
+  border: 3px solid var(--gold);
+  box-shadow: 0 6px 14px rgba(169, 124, 47, 0.25);
+  animation: guide-bounce 2.6s ease-in-out infinite;
+}
+
+.guide__name {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--gold-deep);
+  margin-bottom: 2px;
+}
+
+.guide__message {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+@keyframes guide-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* =========================================================
+   Grid de módulos
+   ========================================================= */
+.modules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 16px;
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.card:active {
+  transform: scale(0.96);
+  box-shadow: 0 6px 14px rgba(79, 133, 168, 0.18);
+}
+
+.card__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.card__icon--blue {
+  background: linear-gradient(135deg, #BFE4FC, var(--sky));
+}
+
+.card__icon--gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+}
+
+.card__title {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.card__subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* =========================================================
+   Bottom Navigation
+   ========================================================= */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 8px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+  box-shadow: 0 -8px 24px rgba(79, 133, 168, 0.12);
+}
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--ink-soft);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.bottom-nav__icon {
+  font-size: 20px;
+}
+
+.bottom-nav__label {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.bottom-nav__item--active {
+  color: var(--gold-deep);
+  background: linear-gradient(135deg, var(--gold-light), rgba(224, 180, 92, 0.4));
+}
+
+/* =========================================================
+   Responsive: pantallas más anchas (tablet/desktop preview)
+   ========================================================= */
+@media (min-width: 540px) {
+  .app {
+    padding-top: 40px;
+  }
+}
