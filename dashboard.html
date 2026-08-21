@@ -29,51 +29,37 @@
 
     <!-- ===== Header ===== -->
     <header class="header">
-      <div class="header__text">
-        <p class="header__school">I.E. General Alfredo Vásquez Cobo</p>
-        <h1 class="header__greeting">¡Hola, Explorador! 👋</h1>
+      <p class="header__greeting">Hola, <span id="userName">Aventurero</span> 👋</p>
+      <div class="header__avatar" aria-label="Foto de perfil">
+        <!-- Placeholder: reemplaza por <img src="assets/img/perfil.png" alt="Foto de perfil"> cuando exista la foto real -->
       </div>
-      <button class="header__avatar" aria-label="Ver perfil">
-        <span>🦊</span>
-      </button>
     </header>
 
     <!-- ===== Zona del guía: Ziro ===== -->
     <section class="guide" aria-label="Mensaje de tu guía Ziro">
-      <div class="guide__avatar">
-        <span>🦊</span>
-      </div>
-      <div class="guide__bubble">
-        <p class="guide__name">Ziro dice:</p>
-        <p class="guide__message">"¡Hoy es un gran día para aprender algo nuevo! ¿Empezamos la aventura?"</p>
-      </div>
+      <img class="guide__avatar" src="assets/img/1000147289.png" alt="Ziro, tu guía zorro">
+      <p class="guide__message">¡Bienvenido! Ziro te estaba esperando para comenzar la aventura.</p>
     </section>
 
     <!-- ===== Grid de módulos ===== -->
     <section class="modules" aria-label="Módulos principales">
 
       <a href="#" class="card">
-        <span class="card__icon card__icon--blue">📚</span>
-        <span class="card__title">Lecciones</span>
-        <span class="card__subtitle">Aprende paso a paso</span>
+        <img class="card__icon" src="assets/img/1000147292.png" alt="Momento de Paz">
+        <span class="card__title">Momento de Paz</span>
+        <span class="card__subtitle">Encuentra tu centro.</span>
       </a>
 
       <a href="#" class="card">
-        <span class="card__icon card__icon--gold">🎮</span>
-        <span class="card__title">Juegos</span>
-        <span class="card__subtitle">Practica jugando</span>
+        <img class="card__icon" src="assets/img/1000147291.png" alt="El Tesoro de los Dioses">
+        <span class="card__title">El Tesoro de los Dioses</span>
+        <span class="card__subtitle">Descubre recompensas.</span>
       </a>
 
       <a href="#" class="card">
-        <span class="card__icon card__icon--blue">📈</span>
-        <span class="card__title">Progreso</span>
-        <span class="card__subtitle">Tus logros</span>
-      </a>
-
-      <a href="#" class="card">
-        <span class="card__icon card__icon--gold">⚙️</span>
-        <span class="card__title">Ajustes</span>
-        <span class="card__subtitle">Personaliza tu app</span>
+        <img class="card__icon" src="assets/img/1000147290.png" alt="Misiones Diarias">
+        <span class="card__title">Misiones Diarias</span>
+        <span class="card__subtitle">Tus retos de hoy.</span>
       </a>
 
     </section>
@@ -99,6 +85,25 @@
       <span class="bottom-nav__label">Perfil</span>
     </a>
   </nav>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = "userName";
+      let name = localStorage.getItem(STORAGE_KEY);
+
+      if (!name) {
+        name = prompt("¿Cómo te llamas, aventurero?");
+        if (name && name.trim() !== "") {
+          name = name.trim();
+          localStorage.setItem(STORAGE_KEY, name);
+        } else {
+          name = "Aventurero";
+        }
+      }
+
+      document.getElementById("userName").textContent = name;
+    })();
+  </script>
 
 </body>
 </html>

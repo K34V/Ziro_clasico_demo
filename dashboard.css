@@ -104,34 +104,34 @@ button {
   padding-top: env(safe-area-inset-top);
 }
 
-.header__school {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 4px;
-}
-
 .header__greeting {
   font-family: "Baloo 2", sans-serif;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--ink);
+}
+
+.header__greeting span {
+  color: var(--gold-deep);
 }
 
 .header__avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #E9E9E9, #D4D4D4);
+  border: 2px solid var(--gold-light);
   box-shadow: var(--glass-shadow);
+  background-clip: padding-box;
+}
+
+.header__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 /* =========================================================
@@ -143,7 +143,7 @@ button {
   gap: 14px;
   padding: 16px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(142, 209, 252, 0.35), rgba(255, 255, 255, 0.55));
+  background: linear-gradient(120deg, #BFE4FC 0%, #E7F3FC 45%, var(--gold-light) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
@@ -152,30 +152,20 @@ button {
 
 .guide__avatar {
   flex-shrink: 0;
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 30px;
+  object-fit: cover;
   background: var(--cream);
-  border: 3px solid var(--gold);
+  border: 3px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 6px 14px rgba(169, 124, 47, 0.25);
   animation: guide-bounce 2.6s ease-in-out infinite;
 }
 
-.guide__name {
-  font-family: "Baloo 2", sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--gold-deep);
-  margin-bottom: 2px;
-}
-
 .guide__message {
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1.35;
+  font-weight: 700;
+  line-height: 1.4;
   color: var(--ink);
 }
 
@@ -200,7 +190,7 @@ button {
   gap: 10px;
   padding: 20px 16px;
   border-radius: var(--radius-md);
-  background: var(--glass-bg);
+  background: linear-gradient(150deg, rgba(191, 228, 252, 0.45) 0%, rgba(255, 255, 255, 0.55) 55%, rgba(246, 223, 160, 0.45) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
@@ -217,23 +207,15 @@ button {
   width: 46px;
   height: 46px;
   border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-}
-
-.card__icon--blue {
-  background: linear-gradient(135deg, #BFE4FC, var(--sky));
-}
-
-.card__icon--gold {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .card__title {
   font-family: "Baloo 2", sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 1.2;
   color: var(--ink);
 }
 
@@ -241,6 +223,11 @@ button {
   font-size: 12px;
   font-weight: 600;
   color: var(--ink-soft);
+}
+
+/* La tercera tarjeta ocupa el ancho completo para evitar dejar un hueco vacío */
+.card:nth-child(3) {
+  grid-column: 1 / -1;
 }
 
 /* =========================================================
