@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Misiones · I.E. General Alfredo Vásquez Cobo</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FDFBF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="misiones.css">
+</head>
+<body>
+
+  <!-- Fondo decorativo, coherente con el resto de la PWA -->
+  <div class="bg-sky" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--gold" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--sky" aria-hidden="true"></div>
+
+  <div class="app">
+
+    <!-- ===== Cabecera de Misiones ===== -->
+    <header class="missions-header">
+      <img class="missions-header__avatar" src="assets/img/1000147289.png" alt="Ziro, tu guía zorro">
+      <div class="missions-header__text">
+        <p class="missions-header__title">¡Vamos por más huellitas!</p>
+        <p class="missions-header__subtitle">Ziro cree en ti, sigue avanzando</p>
+      </div>
+      <span class="badge">🐾 120 Huellitas</span>
+    </header>
+
+    <!-- ===== Selector de Unidades ===== -->
+    <section aria-label="Unidades">
+      <p class="section-title">Unidades</p>
+      <div class="units">
+
+        <div class="unit unit--active">
+          <span class="unit__name">Unidad 1 · Dios me ama</span>
+          <span class="unit__status">En curso</span>
+        </div>
+
+        <div class="unit unit--locked" aria-disabled="true">
+          <span class="unit__name">Unidad 2 · Jesús, mi amigo</span>
+          <div class="unit__lock">
+            <span class="unit__lock-icon">🔒</span>
+            <span class="unit__lock-text">Disponible según el calendario</span>
+          </div>
+        </div>
+
+        <div class="unit unit--locked" aria-disabled="true">
+          <span class="unit__name">Unidad 3 · El perdón</span>
+          <div class="unit__lock">
+            <span class="unit__lock-icon">🔒</span>
+            <span class="unit__lock-text">Disponible según el calendario</span>
+          </div>
+        </div>
+
+        <div class="unit unit--locked" aria-disabled="true">
+          <span class="unit__name">Unidad 4 · La Eucaristía</span>
+          <div class="unit__lock">
+            <span class="unit__lock-icon">🔒</span>
+            <span class="unit__lock-text">Disponible según el calendario</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Misiones de la Unidad 1 (desbloqueadas) ===== -->
+    <section aria-label="Misiones de la Unidad 1">
+      <p class="section-title">Misiones · Unidad 1</p>
+      <div class="missions">
+
+        <article class="mission-card">
+          <h2 class="mission-card__title">La Creación y mi Nombre</h2>
+          <p class="mission-card__desc">Descubre por qué Dios te llamó por tu nombre en la primera lectura.</p>
+          <div class="mission-card__footer">
+            <span class="mission-card__reward">+20 🐾</span>
+            <a href="#" class="mission-card__btn">Realizar Misión</a>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <h2 class="mission-card__title">Agradece en Familia</h2>
+          <p class="mission-card__desc">Escribe 3 cosas buenas que te pasaron hoy y da gracias antes de dormir.</p>
+          <div class="mission-card__footer">
+            <span class="mission-card__reward">+20 🐾</span>
+            <a href="#" class="mission-card__btn">Completar</a>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <h2 class="mission-card__title">Asistencia a Clase</h2>
+          <p class="mission-card__desc">Confirma tu presencia en el encuentro semanal de catequesis.</p>
+          <div class="mission-card__footer">
+            <span class="mission-card__reward">+30 🐾</span>
+            <a href="#" class="mission-card__btn">Registrar</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== Bottom Navigation ===== -->
+  <nav class="bottom-nav" aria-label="Navegación principal">
+    <a href="dashboard.html" class="bottom-nav__item">
+      <img class="bottom-nav__icon" src="assets/img/1000147289.png" alt="">
+      <span class="bottom-nav__label">Inicio</span>
+    </a>
+    <a href="#" class="bottom-nav__item">
+      <img class="bottom-nav__icon" src="assets/img/1000147292.png" alt="">
+      <span class="bottom-nav__label">Paz</span>
+    </a>
+    <a href="#" class="bottom-nav__item">
+      <img class="bottom-nav__icon" src="assets/img/1000147291.png" alt="">
+      <span class="bottom-nav__label">Tesoro</span>
+    </a>
+    <a href="misiones.html" class="bottom-nav__item bottom-nav__item--active">
+      <img class="bottom-nav__icon" src="assets/img/1000147290.png" alt="">
+      <span class="bottom-nav__label">Misiones</span>
+    </a>
+  </nav>
+
+</body>
+</html>
