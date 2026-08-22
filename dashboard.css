@@ -228,11 +228,22 @@ button {
   color: var(--text);
 }
 
-.card__icon {
+.card__icon-box {
   flex-shrink: 0;
   width: 60px;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+}
+
+.card__icon {
+  max-width: 80%;
+  max-height: 80%;
   object-fit: contain;
+  margin: auto;
 }
 
 /* =========================================================
@@ -266,7 +277,9 @@ button {
 }
 
 .bottom-nav__icon {
-  font-size: 20px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .bottom-nav__label {
